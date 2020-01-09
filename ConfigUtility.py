@@ -13,7 +13,7 @@ class Config(object):
 		# 加载配置文件
 		try:
 			self.config = ConfigParser()
-			self.config.read(config_path)
+			self.config.read(config_path, encoding='utf-8')
 		except FileNotFoundError as f:
 			print(f)
 		except Exception as e:
