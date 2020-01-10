@@ -15,7 +15,7 @@ def ImageDailyPaper():
 	image_opt = ImageOpt(Canvas=canvas)
 	cur_x, cur_y = 10, 10
 	# 早报
-	cur_x, cur_y = image_opt.drawText(text=f"{date} [ {week} ] 早报", x=cur_x, y=cur_y + 5, font=ImageFont.truetype("./Resource/Fonts/simkai.ttf", 24))
+	cur_x, cur_y = image_opt.drawText(text=f"{date} [ {week} ] 日报", x=cur_x, y=cur_y + 5, font=ImageFont.truetype("./Resource/Fonts/simkai.ttf", 24))
 	# 天气预报
 	if weather_ls:
 		image_opt.drawImage(image=image_opt.resizeImage(image=LoadImage(image_url=f"http://res.tianapi.com/weather/{weather_ls[0]['weatherimg']}")), x=460, y=60, show_mask=True)
@@ -60,7 +60,7 @@ def ImageDailyPaper():
 # 文字日报
 def TextDailyPaper():
 	daily_lines = list()
-	daily_lines.append(f"{date} [ {week} ] 早报")
+	daily_lines.append(f"{date} [ {week} ] 日报")
 	if weather_ls:
 		daily_lines.append(f">>>>> 天气预报 <<<<<")
 		daily_lines.append(f"{city_name} {weather_ls[0]['weather']}")
@@ -100,6 +100,6 @@ def ClipBoardDailyPaper():
 
 
 if __name__ == '__main__':
-	MailDailyPaper()
+	ImageDailyPaper()
 
 	pass
