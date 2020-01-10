@@ -2,3 +2,5 @@ PIL
 requests
 yagmail
 pyperclip
+logging
+textwrap

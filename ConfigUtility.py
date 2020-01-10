@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # -*- coding:UTF-8 -*-
 from configparser import ConfigParser
+from Config import logger
 
 
 class Config(object):
@@ -15,9 +16,9 @@ class Config(object):
 			self.config = ConfigParser()
 			self.config.read(config_path, encoding='utf-8')
 		except FileNotFoundError as f:
-			print(f)
+			logger.error(f)
 		except Exception as e:
-			print(e)
+			logger.error(e)
 
 	def read(self, config_section, config_option):
 		try:
@@ -26,7 +27,7 @@ class Config(object):
 			self.config_value = self.config.get(section=self.config_section, option=self.config_option)
 			return self.config_value
 		except Exception as e:
-			print(e)
+			logger.error(e)
 
 	def save(self, config_section, config_option, config_value):
 		try:
@@ -37,7 +38,7 @@ class Config(object):
 			with open(self.config_path, 'w') as config_file:
 				self.config.write(config_file)
 		except FileNotFoundError as f:
-			print(f)
+			logger.error(f)
 		except Exception as e:
-			print(e)
+			logger.error(e)
 

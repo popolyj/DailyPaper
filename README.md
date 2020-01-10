@@ -24,13 +24,5 @@ pip install -r requirement.txt
 ImageDailyPaper()： 生成图片格式的日报，默认返回图片路径  
 TextDailyPaper()： 生成文本格式的日报，默认返回日报文本
 MailDailyPaper()： 将文本以邮件内容，图片为附件的形式发布邮件  
-ClipBoardDailyPaper()： 将文本日报复制到剪贴板  
-  
-  
-效果截图：  
-图片日报：  
-  
-文本日报：  
-  
-邮件日报：  
+ClipBoardDailyPaper()： 将文本日报复制到剪贴板    
   
