@@ -12,7 +12,7 @@ from PIL import Image
 import ConfigUtility
 from Config import logger
 
-config = ConfigUtility.Config(config_path=r'./Config/Config_Use.ini')
+config = ConfigUtility.Config(config_path=r'./Config/Config.ini')
 MailToList = list(filter(None, str(config.read(config_section='Email', config_option='MailToList')).split('|')))
 Key = config.read(config_section='Key', config_option='Key')
 DefaultWidth = int(config.read(config_section='DailyPaper', config_option='DefaultWidth'))
