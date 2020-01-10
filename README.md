@@ -8,7 +8,7 @@ pip install -r requirement.txt
   
 使用注意：  
 使用前请务必修改相应的参数  
-邮箱类：user、password、host、port、mail_ls  
+邮箱类：user、password、host、port、MailToList  
   
   
 接口的key：  
@@ -19,12 +19,18 @@ pip install -r requirement.txt
 修改运行参数后，运行  
   
   
-效果截图：  
-仅复制到剪贴板：  
-get_daily(show_digest=False, show_url=False, show_image=False, send_to_clidBoard=True, send_mail=False)  
-get_daily(show_digest=True, show_url=False, show_image=False, send_to_clidBoard=True, send_mail=False)  
-get_daily(show_digest=True, show_url=True, show_image=True, send_to_clidBoard=True, send_mail=False)  
+使用方法：  
+目前提供的方法如下：
+ImageDailyPaper()： 生成图片格式的日报，默认返回图片路径  
+TextDailyPaper()： 生成文本格式的日报，默认返回日报文本
+MailDailyPaper()： 将文本以邮件内容，图片为附件的形式发布邮件  
+ClipBoardDailyPaper()： 将文本日报复制到剪贴板  
   
-发送邮件（需要提前配置邮件参数）：  
-get_daily(show_digest=True, show_url=True, show_image=True, send_to_clidBoard=True, send_mail=True)  
+  
+效果截图：  
+图片日报：  
+  
+文本日报：  
+  
+邮件日报：  
   
