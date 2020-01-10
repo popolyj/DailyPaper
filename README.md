@@ -20,7 +20,7 @@ pip install -r requirement.txt
   
   
 使用方法：  
-目前提供的方法如下：
+目前提供的方法如下：  
 ImageDailyPaper()： 生成图片格式的日报，默认返回图片路径  
 TextDailyPaper()： 生成文本格式的日报，默认返回日报文本  
 MailDailyPaper()： 将文本以邮件内容，图片为附件的形式发布邮件  
