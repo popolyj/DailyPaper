@@ -1,4 +1,4 @@
-PIL
+Pillow
 requests
 yagmail
 pyperclip
