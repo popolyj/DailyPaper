@@ -14,7 +14,7 @@ pip install -r requirement.txt
 接口的key：  
 请自行前往https://www.tianapi.com/apiview/26 注册，请替换26为后续数字  
 申请后，注册接口ID为 26 72 117  
-完成后，在个人中心会得到APIKEY ，将其填入Key的list中  
+完成后，在个人中心会得到APIKEY ，配置文件的Key中  
 城市：默认为上海，请修改成你需要的城市  
 修改运行参数后，运行  
   
