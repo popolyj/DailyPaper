@@ -30,7 +30,7 @@ def ImageDailyPaper():
 	if bulletin_ls:
 		cur_x, cur_y = image_opt.drawImage(image=Image.open(f'./Resource/Skins/Default/bg-0-bulletin.png'), x=cur_x, y=cur_y + 10)
 		for idx, bulletin in enumerate(bulletin_ls, start=1):
-			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{bulletin['title']}", x=cur_x, y=cur_y + 5, fill='#006666', maxWidth=33)
+			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{bulletin['title']}", x=cur_x, y=cur_y + 5, fill='#006666', maxWidth=33, iswarp=False)
 			if bulletin['imgsrc']:
 				cur_x, cur_y = image_opt.drawImageText(text=f"    {bulletin['digest']}({bulletin['source']})",
 				                                       image=image_opt.resizeImage(image=LoadImage(image_url=f"{bulletin['imgsrc']}"), width=150),
