@@ -58,7 +58,7 @@ def ImageDailyPaper():
 
 
 # 文字日报
-def TextDailyPaper():
+def TextDailyPaper(isMail: bool = False):
 	daily_lines = list()
 	daily_lines.append(f"{date} [ {week} ] 日报")
 	if weather_ls:
@@ -72,15 +72,24 @@ def TextDailyPaper():
 	if bulletin_ls:
 		daily_lines.append(f">>>>> 今日简报 <<<<<")
 		for idx, bulletin in enumerate(bulletin_ls, start=1):
-			daily_lines.append(f"{idx}、{bulletin['title']}")
+			if isMail and bulletin['url'] != '':
+				daily_lines.append(f"<a href=\'{bulletin['url']}\'>{idx}、{bulletin['title']}</a>")
+			else:
+				daily_lines.append(f"{idx}、{bulletin['title']}")
 	if journalism_ls:
 		daily_lines.append(f">>>>> 今日新闻 <<<<<")
 		for idx, journalism in enumerate(journalism_ls, start=1):
-			daily_lines.append(f"{idx}、{journalism['title']}")
+			if isMail and journalism['url'] != '':
+				daily_lines.append(f"<a href=\'{journalism['url']}\'>{idx}、{journalism['title']}</a>")
+			else:
+				daily_lines.append(f"{idx}、{journalism['title']}")
 	if it_news_ls:
 		daily_lines.append(f">>>>> 今日前沿 <<<<<")
 		for idx, it_news in enumerate(it_news_ls, start=1):
-			daily_lines.append(f"{idx}、{it_news['title']}")
+			if isMail and it_news['url'] != '':
+				daily_lines.append(f"<a href=\'{it_news['url']}\'>{idx}、{it_news['title']}</a>")
+			else:
+				daily_lines.append(f"{idx}、{it_news['title']}")
 	if sentence_ls:
 		daily_lines.append(f">>>>> 今日心语 <<<<<")
 		for idx, sentence in enumerate(sentence_ls, start=1):
@@ -91,7 +100,7 @@ def TextDailyPaper():
 
 # 邮件日报
 def MailDailyPaper():
-	sendMail(subject=f"{date} [{week}] 日报", contents=TextDailyPaper(), attachments=ImageDailyPaper())
+	sendMail(subject=f"{date} [{week}] 日报", contents=TextDailyPaper(isMail=True), attachments=ImageDailyPaper())
 
 
 # 剪贴板日报
@@ -100,6 +109,6 @@ def ClipBoardDailyPaper():
 
 
 if __name__ == '__main__':
-	ImageDailyPaper()
+	MailDailyPaper()
 
 	pass
