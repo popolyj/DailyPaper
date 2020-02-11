@@ -105,10 +105,12 @@ def MailDailyPaper():
 
 # 剪贴板日报
 def ClipBoardDailyPaper():
-	SetClipBoard(TextDailyPaper())
+	textDaily = TextDailyPaper()
+	print(textDaily)
+	SetClipBoard(textDaily)
 
 
 if __name__ == '__main__':
-	MailDailyPaper()
+	ImageDailyPaper()
 
 	pass
