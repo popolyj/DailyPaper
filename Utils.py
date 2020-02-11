@@ -55,6 +55,8 @@ def get():
 					res_list[module] = res['newslist']
 				else:
 					logger.error(msg=f'请求失败\n{res}')
+					if res['code'] == 230:
+						return res_list
 		return res_list
 	except Exception as e:
 		logger.error(e)
