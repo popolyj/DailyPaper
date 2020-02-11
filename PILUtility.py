@@ -23,8 +23,11 @@ class ImageOpt(object):
 		self.Canvas.save(image_path)
 
 	# 绘制文本
-	def drawText(self, text, x: int = 0, y: int = 0, font: ImageFont.FreeTypeFont = ImageFont.truetype("./Resource/Fonts/simkai.ttf", 18), fill="#000000", maxWidth: int = 30):
-		lines = textwrap.wrap(text, width=maxWidth)
+	def drawText(self, text, x: int = 0, y: int = 0, font: ImageFont.FreeTypeFont = ImageFont.truetype("./Resource/Fonts/simkai.ttf", 18), fill="#000000", maxWidth: int = 30, iswarp:bool = True):
+		if iswarp:
+			lines = textwrap.wrap(text, width=maxWidth)
+		else:
+			lines = [textwrap.shorten(text, width=maxWidth, placeholder="...")]
 		for line in lines:
 			fontWidth, fontHeight = self.draw.textsize(line, font=font)
 			self.draw.text((x, y), line, font=font, fill=fill)

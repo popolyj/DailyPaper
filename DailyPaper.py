@@ -30,28 +30,28 @@ def ImageDailyPaper():
 	if bulletin_ls:
 		cur_x, cur_y = image_opt.drawImage(image=Image.open(f'./Resource/Skins/Default/bg-0-bulletin.png'), x=cur_x, y=cur_y + 10)
 		for idx, bulletin in enumerate(bulletin_ls, start=1):
-			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{bulletin['title']}", x=cur_x, y=cur_y + 5, fill='#006666', maxWidth=32)
+			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{bulletin['title']}", x=cur_x, y=cur_y + 5, fill='#006666', maxWidth=33, iswarp=False)
 			if bulletin['imgsrc']:
 				cur_x, cur_y = image_opt.drawImageText(text=f"    {bulletin['digest']}({bulletin['source']})",
 				                                       image=image_opt.resizeImage(image=LoadImage(image_url=f"{bulletin['imgsrc']}"), width=150),
 				                                       x=cur_x, y=cur_y + 5, maxWidth=23)
 			else:
-				cur_x, cur_y = image_opt.drawText(text=f"    {bulletin['digest']}({bulletin['source']})", x=cur_x, y=cur_y + 5, maxWidth=32)
+				cur_x, cur_y = image_opt.drawText(text=f"    {bulletin['digest']}({bulletin['source']})", x=cur_x, y=cur_y + 5, maxWidth=33)
 	# 综合新闻
 	if journalism_ls:
 		cur_x, cur_y = image_opt.drawImage(image=Image.open(f'./Resource/Skins/Default/bg-0-journalism.png'), x=cur_x, y=cur_y + 10)
 		for idx, journalism in enumerate(journalism_ls, start=1):
-			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{journalism['description']}:{journalism['title']}", x=cur_x, y=cur_y + 5, maxWidth=32)
+			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{journalism['description']}:{journalism['title']}", x=cur_x, y=cur_y + 5, maxWidth=33)
 	# IT资讯
 	if it_news_ls:
 		cur_x, cur_y = image_opt.drawImage(image=Image.open(f'./Resource/Skins/Default/bg-0-itnews.png'), x=cur_x, y=cur_y + 10)
 		for idx, it_news in enumerate(it_news_ls, start=1):
-			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{it_news['title']}", x=cur_x, y=cur_y + 5, maxWidth=32)
+			cur_x, cur_y = image_opt.drawText(text=f"{idx}、{it_news['title']}", x=cur_x, y=cur_y + 5, maxWidth=33)
 	# 心语
 	if sentence_ls:
 		cur_x, cur_y = image_opt.drawImage(image=Image.open(f'./Resource/Skins/Default/bg-0-sentence.png'), x=cur_x, y=cur_y + 10)
 		for idx, sentence in enumerate(sentence_ls, start=1):
-			cur_x, cur_y = image_opt.drawText(text=f"{sentence['content']} —— {sentence['mrname']}", x=cur_x, y=cur_y + 5, maxWidth=32)
+			cur_x, cur_y = image_opt.drawText(text=f"{sentence['content']} —— {sentence['mrname']}", x=cur_x, y=cur_y + 5, maxWidth=33)
 	image_path = f"./Export/DailyPaper_{Today()}.png"
 	image_opt.saveImage(image_path=image_path)
 	return image_path
